@@ -6,23 +6,24 @@
         xmlns:local="clr-namespace:WiredBrainCoffe"
         mc:Ignorable="d"
         Title="Customers App"
-        d:DesignWidth="500"
+        d:DesignWidth="700"
         d:DesignHeight="600"
         FontSize="20">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <!-- Main menu -->
-        <Menu FontSize="20" Grid.ColumnSpan="2">
+        <Menu FontSize="20"
+              Grid.ColumnSpan="2">
             <MenuItem Header="_View">
                 <MenuItem Header="_Customers" />
                 <MenuItem Header="_Products" />
@@ -30,20 +31,28 @@
         </Menu>
 
         <!-- Header -->
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Background="#F05A28"
-                    Orientation="Horizontal">
-            <Image Source="/Images/logo.png"
-                   Width="100" />
-            <TextBlock Text="Customers App"
-                       FontSize="30"
-                       Foreground="White" />
-            <TextBlock Text="Version 1.0"
-                       FontSize="16"
-                       Foreground="#333333" />
-        </StackPanel>
-
+        <Grid Grid.Row="1"
+              Grid.ColumnSpan="2"
+              Background="#F05A28">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Image Source="/Images/logo.png"
+                       Width="100"
+                       Margin="5" />
+                <TextBlock Text="Customers App"
+                           FontSize="30"
+                           Foreground="White"
+                           VerticalAlignment="Center" />
+                <TextBlock Text="Version 1.0"
+                           FontSize="16"
+                           Foreground="#333333"
+                           VerticalAlignment="Bottom"
+                           Margin="10 0 0 22" />
+            </StackPanel>
+        </Grid>
         <!-- Customer list -->
-        <StackPanel Grid.Row="2" Background="#777">
+        <StackPanel Grid.Row="2"
+                    Background="#777">
             <StackPanel Orientation="Horizontal">
                 <Button Margin="10"
                         Width="75">
@@ -70,7 +79,9 @@
         </StackPanel>
 
         <!-- Customer detail -->
-        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
+        <StackPanel Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="10">
             <Label>Firstname:</Label>
             <TextBox />
             <Label>Lastname:</Label>
@@ -81,7 +92,8 @@
         </StackPanel>
 
         <!-- Statusbar -->
-        <StatusBar Grid.Row="3" Grid.ColumnSpan="2">
+        <StatusBar Grid.Row="3"
+                   Grid.ColumnSpan="2">
             <StatusBarItem FontSize="20"
                            Content=" (c) Wired Brain Coffee" />
         </StatusBar>
