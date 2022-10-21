@@ -9,11 +9,14 @@
         d:DesignWidth="700"
         d:DesignHeight="600"
         FontSize="20">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -23,7 +26,7 @@
 
         <!-- Main menu -->
         <Menu FontSize="20"
-              Grid.ColumnSpan="2">
+              Grid.ColumnSpan="3">
             <MenuItem Header="_View">
                 <MenuItem Header="_Customers" />
                 <MenuItem Header="_Products" />
@@ -32,7 +35,7 @@
 
         <!-- Header -->
         <Grid Grid.Row="1"
-              Grid.ColumnSpan="2"
+              Grid.ColumnSpan="3"
               Background="#F05A28">
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center">
@@ -50,9 +53,15 @@
                            Margin="10 0 0 22" />
             </StackPanel>
         </Grid>
+
         <!-- Customer list -->
-        <StackPanel Grid.Row="2"
-                    Background="#777">
+        <Grid x:Name="customerListGrid"
+              Grid.Row="2"
+              Background="#777">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
                 <Button Margin="10"
                         Width="75">
@@ -66,17 +75,18 @@
                 <Button Content="Delete"
                         Width="75"
                         Margin="0 10 10 10" />
-                <Button Margin="0 10 10 10">
+                <Button Margin="0 10 10 10" Click="ButtonMoveNavigation_Click">
                     <Image Source="/Images/move.png"
                            Height="18" />
                 </Button>
             </StackPanel>
-            <ListView Margin="10 0 10 10">
+            <ListView Grid.Row="1"
+                      Margin="10 0 10 10">
                 <ListViewItem>Julia</ListViewItem>
                 <ListViewItem>Alex</ListViewItem>
                 <ListViewItem>Thomas</ListViewItem>
             </ListView>
-        </StackPanel>
+        </Grid>
 
         <!-- Customer detail -->
         <StackPanel Grid.Row="2"
@@ -93,7 +103,7 @@
 
         <!-- Statusbar -->
         <StatusBar Grid.Row="3"
-                   Grid.ColumnSpan="2">
+                   Grid.ColumnSpan="3">
             <StatusBarItem FontSize="20"
                            Content=" (c) Wired Brain Coffee" />
         </StatusBar>
