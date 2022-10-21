@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WiredBrainCoffe"
         xmlns:controls="clr-namespace:WiredBrainCoffe.Controls"
+        xmlns:view="clr-namespace:WiredBrainCoffe.View"
         mc:Ignorable="d"
         Title="Customers App"
         d:DesignWidth="700"
@@ -19,7 +20,6 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!-- Main menu -->
         <Menu FontSize="20">
             <MenuItem Header="_View">
                 <MenuItem Header="_Customers" />
@@ -29,62 +29,8 @@
 
         <controls:HeaderControl Grid.Row="1" />
 
-        <!--Customer View-->
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+        <view:CustomersView Grid.Row="2" />
 
-            <!-- Customer list -->
-            <Grid x:Name="customerListGrid"
-                  Background="#777">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal">
-                    <Button Margin="10"
-                            Width="75">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Images/add.png"
-                                   Height="18"
-                                   Margin="0 0 5 0" />
-                            <TextBlock Text="Add" />
-                        </StackPanel>
-                    </Button>
-                    <Button Content="Delete"
-                            Width="75"
-                            Margin="0 10 10 10" />
-                    <Button Margin="0 10 10 10"
-                            Click="ButtonMoveNavigation_Click">
-                        <Image Source="/Images/move.png"
-                               Height="18" />
-                    </Button>
-                </StackPanel>
-                <ListView Grid.Row="1"
-                          Margin="10 0 10 10">
-                    <ListViewItem>Julia</ListViewItem>
-                    <ListViewItem>Alex</ListViewItem>
-                    <ListViewItem>Thomas</ListViewItem>
-                </ListView>
-            </Grid>
-
-            <!-- Customer detail -->
-            <StackPanel Grid.Column="1"
-                        Margin="10">
-                <Label>Firstname:</Label>
-                <TextBox />
-                <Label>Lastname:</Label>
-                <TextBox />
-                <CheckBox Margin="0 10 0 0">
-                    Is developer
-                </CheckBox>
-            </StackPanel>
-        </Grid>
-
-        <!-- Statusbar -->
         <StatusBar Grid.Row="3">
             <StatusBarItem FontSize="20"
                            Content=" (c) Wired Brain Coffee" />
