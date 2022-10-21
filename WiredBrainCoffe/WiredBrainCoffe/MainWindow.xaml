@@ -3,13 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WiredBrainCoffe"
         xmlns:controls="clr-namespace:WiredBrainCoffe.Controls"
         xmlns:view="clr-namespace:WiredBrainCoffe.View"
         mc:Ignorable="d"
         Title="Customers App"
         d:DesignWidth="700"
         d:DesignHeight="600"
+        Height="500"
+        Width="800"
         FontSize="20">
 
     <Grid>
