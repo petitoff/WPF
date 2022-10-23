@@ -40,7 +40,8 @@
                            Height="18" />
                 </Button>
             </StackPanel>
-            <ListView Grid.Row="1"
+            <ListView x:Name="customerListView"
+                      Grid.Row="1"
                       Margin="10 0 10 10">
                 <ListViewItem>Julia</ListViewItem>
                 <ListViewItem>Alex</ListViewItem>
@@ -52,7 +53,7 @@
         <StackPanel Grid.Column="1"
                     Margin="10">
             <Label>Firstname:</Label>
-            <TextBox />
+            <TextBox Text="{Binding ElementName=customerListView, Path=SelectedItem.Content, Mode=OneWay}" />
             <Label>Lastname:</Label>
             <TextBox />
             <CheckBox Margin="0 10 0 0">
