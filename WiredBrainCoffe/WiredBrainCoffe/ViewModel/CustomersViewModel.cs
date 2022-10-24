@@ -52,7 +52,7 @@ namespace WiredBrainCoffe.ViewModel
             }
         }
 
-        public void Add()
+        internal void Add()
         {
             var customer = new Customer { FirstName = "New" };
             Customers.Add(customer);
