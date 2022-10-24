@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using WiredBrainCoffe.Data;
@@ -27,7 +28,7 @@ namespace WiredBrainCoffe.ViewModel
 
             var customers = await _customerDataProvider.GetAllAsync();
 
-            if(customers == null)
+            if (customers == null)
             {
                 return;
             }
@@ -36,6 +37,13 @@ namespace WiredBrainCoffe.ViewModel
             {
                 Customers.Add(customer);
             }
+        }
+
+        internal void Add()
+        {
+            var customer = new Customer { FirstName = "New" };
+            Customers.Add(customer);
+            SelectedCustomer = customer;
         }
     }
 }
