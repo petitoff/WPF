@@ -10,15 +10,15 @@ namespace WiredBrainCoffe.ViewModel
     class CustomersViewModel : ViewModelBase
     {
         private readonly ICustomerDataProvider _customerDataProvider;
-        private Customer? _selectedCustomer;
+        private CustomerItemViewModel? _selectedCustomer;
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             _customerDataProvider = customerDataProvider;
         }
 
-        public ObservableCollection<Customer> Customers { get; } = new();
-        public Customer? SelectedCustomer
+        public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
+        public CustomerItemViewModel? SelectedCustomer
         {
             get => _selectedCustomer;
             set
@@ -44,15 +44,16 @@ namespace WiredBrainCoffe.ViewModel
 
             foreach (var customer in customers)
             {
-                Customers.Add(customer);
+                Customers.Add(new CustomerItemViewModel(customer);
             }
         }
 
         internal void Add()
         {
             var customer = new Customer { FirstName = "New" };
-            Customers.Add(customer);
-            SelectedCustomer = customer;
+            var customerItem = new CustomerItemViewModel(customer);
+            Customers.Add(customerItem);
+            SelectedCustomer = customerItem;
         }
     }
 }
