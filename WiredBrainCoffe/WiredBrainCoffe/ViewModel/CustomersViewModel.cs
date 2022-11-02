@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using WiredBrainCoffe.Command;
 using WiredBrainCoffe.Data;
 using WiredBrainCoffe.Model;
 
@@ -10,12 +11,16 @@ namespace WiredBrainCoffe.ViewModel
     class CustomersViewModel : ViewModelBase
     {
         private readonly ICustomerDataProvider _customerDataProvider;
+
+
         private CustomerItemViewModel? _selectedCustomer;
         private NavigationSide _navigationSide;
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             _customerDataProvider = customerDataProvider;
+            AddCommand = new DelegateCommand(Add);
+            MoveNavigationCommand = new DelegateCommand(MoveNavigation);
         }
 
         public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
@@ -59,7 +64,11 @@ namespace WiredBrainCoffe.ViewModel
             }
         }
 
-        internal void Add()
+        public DelegateCommand AddCommand { get; }
+        public DelegateCommand MoveNavigationCommand { get; }
+
+
+        private void Add(object? parameter)
         {
             var customer = new Customer { FirstName = "New" };
             var customerItem = new CustomerItemViewModel(customer);
@@ -67,7 +76,7 @@ namespace WiredBrainCoffe.ViewModel
             SelectedCustomer = customerItem;
         }
 
-        internal void MoveNavigation()
+        private void MoveNavigation(object? parameter)
         {
             NavigationSide = NavigationSide == NavigationSide.Left ? NavigationSide.Right : NavigationSide.Left;
         }
