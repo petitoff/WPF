@@ -11,6 +11,7 @@ namespace WiredBrainCoffe.ViewModel
     {
         private readonly ICustomerDataProvider _customerDataProvider;
         private CustomerItemViewModel? _selectedCustomer;
+        private int _navigationColumn;
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
@@ -24,6 +25,16 @@ namespace WiredBrainCoffe.ViewModel
             set
             {
                 _selectedCustomer = value;
+                OnPropertyChange();
+            }
+        }
+
+        public int NavigationColumn
+        {
+            get => _navigationColumn;
+            private set
+            {
+                _navigationColumn = value;
                 OnPropertyChange();
             }
         }
@@ -44,7 +55,7 @@ namespace WiredBrainCoffe.ViewModel
 
             foreach (var customer in customers)
             {
-                Customers.Add(new CustomerItemViewModel(customer);
+                Customers.Add(new CustomerItemViewModel(customer));
             }
         }
 
@@ -54,6 +65,11 @@ namespace WiredBrainCoffe.ViewModel
             var customerItem = new CustomerItemViewModel(customer);
             Customers.Add(customerItem);
             SelectedCustomer = customerItem;
+        }
+
+        internal void MoveNavigation()
+        {
+            NavigationColumn = NavigationColumn == 0 ? 2 : 0;
         }
     }
 }
