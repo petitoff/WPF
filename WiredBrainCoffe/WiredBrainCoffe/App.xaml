@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:WiredBrainCoffe"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="HeaderBackgroundBrush"
+                         Color="#F05A28" />
+        <SolidColorBrush x:Key="HeaderForegroundBrush"
+                         Color="#fff" />
     </Application.Resources>
 </Application>
