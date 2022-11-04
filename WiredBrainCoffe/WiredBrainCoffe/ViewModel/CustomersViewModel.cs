@@ -10,9 +10,12 @@ namespace WiredBrainCoffe.ViewModel
 {
     class CustomersViewModel : ViewModelBase
     {
+        public DelegateCommand AddCommand { get; }
+        public DelegateCommand DeleteCommand { get; }
+        public DelegateCommand MoveNavigationCommand { get; }
+        public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
+
         private readonly ICustomerDataProvider _customerDataProvider;
-
-
         private CustomerItemViewModel? _selectedCustomer;
         private NavigationSide _navigationSide;
 
@@ -21,9 +24,9 @@ namespace WiredBrainCoffe.ViewModel
             _customerDataProvider = customerDataProvider;
             AddCommand = new DelegateCommand(Add);
             MoveNavigationCommand = new DelegateCommand(MoveNavigation);
+            DeleteCommand = new DelegateCommand(Delete, CanDelete);
         }
 
-        public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
         public CustomerItemViewModel? SelectedCustomer
         {
             get => _selectedCustomer;
@@ -31,6 +34,7 @@ namespace WiredBrainCoffe.ViewModel
             {
                 _selectedCustomer = value;
                 OnPropertyChange();
+                DeleteCommand.OnCanExecuteChanged();
             }
         }
 
@@ -64,10 +68,6 @@ namespace WiredBrainCoffe.ViewModel
             }
         }
 
-        public DelegateCommand AddCommand { get; }
-        public DelegateCommand MoveNavigationCommand { get; }
-
-
         private void Add(object? parameter)
         {
             var customer = new Customer { FirstName = "New" };
@@ -79,6 +79,20 @@ namespace WiredBrainCoffe.ViewModel
         private void MoveNavigation(object? parameter)
         {
             NavigationSide = NavigationSide == NavigationSide.Left ? NavigationSide.Right : NavigationSide.Left;
+        }
+
+        private void Delete(object? parameter)
+        {
+            if(SelectedCustomer != null)
+            {
+                Customers.Remove(SelectedCustomer);
+                SelectedCustomer = null;
+            }
+        }
+
+        private bool CanDelete(object? parameter)
+        {
+            return SelectedCustomer is not null;
         }
     }
 

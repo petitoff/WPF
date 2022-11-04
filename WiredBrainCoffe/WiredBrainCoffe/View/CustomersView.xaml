@@ -42,7 +42,8 @@
                 </Button>
                 <Button Content="Delete"
                         Width="75"
-                        Margin="0 10 10 10" />
+                        Margin="0 10 10 10" 
+                        Command="{Binding DeleteCommand}"/>
                 <Button Margin="0 10 10 10"
                         Command="{Binding MoveNavigationCommand}">
                     <Image Source="/Images/move.png"
