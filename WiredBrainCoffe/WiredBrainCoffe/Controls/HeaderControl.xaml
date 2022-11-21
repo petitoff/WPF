@@ -8,8 +8,6 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
 
-
-
     <Grid Background="{StaticResource HeaderBackgroundBrush}">
         <StackPanel Orientation="Horizontal"
                     HorizontalAlignment="Center">

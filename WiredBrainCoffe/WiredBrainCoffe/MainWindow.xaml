@@ -36,5 +36,6 @@
             <StatusBarItem FontSize="20"
                            Content=" (c) Wired Brain Coffee" />
         </StatusBar>
+
     </Grid>
 </Window>
