@@ -4,7 +4,7 @@ using WiredBrainCoffe.Model;
 
 namespace WiredBrainCoffe.Data
 {
-    interface ICustomerDataProvider
+    public interface ICustomerDataProvider
     {
         Task<IEnumerable<Customer>?> GetAllAsync();
     }

@@ -16,7 +16,7 @@ namespace WiredBrainCoffe.ViewModel
         
         public virtual Task LoadAsync()
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }

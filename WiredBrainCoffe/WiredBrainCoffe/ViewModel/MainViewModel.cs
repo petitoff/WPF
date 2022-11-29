@@ -5,13 +5,13 @@ namespace WiredBrainCoffe.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private ViewModelBase? _selectedViewModel;
-        private CustomerItemViewModel _customersViewModel { get; }
+        private CustomersViewModel CustomersViewModel { get; }
 
 
-        public MainViewModel(CustomerItemViewModel customersViewModel)
+        public MainViewModel(CustomersViewModel customersViewModel)
         {
-            _customersViewModel = customersViewModel;
-            SelectedViewModel = _customersViewModel;
+            CustomersViewModel = customersViewModel;
+            SelectedViewModel = CustomersViewModel;
         }
 
         public ViewModelBase? SelectedViewModel
@@ -24,7 +24,7 @@ namespace WiredBrainCoffe.ViewModel
             }
         }
 
-        public async override Task LoadAsync()
+        public override async Task LoadAsync()
         {
             if (SelectedViewModel is not null)
             {

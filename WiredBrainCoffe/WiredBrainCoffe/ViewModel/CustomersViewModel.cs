@@ -8,7 +8,7 @@ using WiredBrainCoffe.Model;
 
 namespace WiredBrainCoffe.ViewModel
 {
-    class CustomersViewModel : ViewModelBase
+    public class CustomersViewModel : ViewModelBase
     {
         public DelegateCommand AddCommand { get; }
         public DelegateCommand DeleteCommand { get; }
