@@ -1,19 +1,20 @@
 ﻿using System.Threading.Tasks;
+using WiredBrainCoffe.Command;
 
 namespace WiredBrainCoffe.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
+
         private ViewModelBase? _selectedViewModel;
-        private CustomersViewModel _customersViewModel;
-        private ProductsViewModel _productsViewModel;
 
 
         public MainViewModel(CustomersViewModel customersViewModel, ProductsViewModel productsViewModel)
         {
-            _customersViewModel = customersViewModel;
-            _productsViewModel = productsViewModel;
-            SelectedViewModel = _customersViewModel;
+            CustomersViewModel = customersViewModel;
+            ProductsViewModel = productsViewModel;
+            SelectedViewModel = CustomersViewModel;
+            SelectViewModelCommand = new DelegateCommand(SelectViewModel);
         }
 
         public ViewModelBase? SelectedViewModel
@@ -25,6 +26,10 @@ namespace WiredBrainCoffe.ViewModel
                 OnPropertyChange();
             }
         }
+        public CustomersViewModel CustomersViewModel { get; }
+        public ProductsViewModel ProductsViewModel { get; }
+        public DelegateCommand SelectViewModelCommand { get; }
+
 
         public override async Task LoadAsync()
         {
@@ -32,6 +37,12 @@ namespace WiredBrainCoffe.ViewModel
             {
                 await SelectedViewModel.LoadAsync();
             }
+        }
+
+        private async Task SelectViewModel(object? parameter)
+        {
+            SelectedViewModel = parameter as ViewModelBase;
+            await LoadAsync();
         }
     }
 }
