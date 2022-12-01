@@ -9,11 +9,11 @@ namespace WiredBrainCoffe
     {
         private readonly MainViewModel _viewModel;
 
-        public MainWindow()
+        public MainWindow(MainViewModel mainViewModel)
         {
             InitializeComponent();
 
-            _viewModel = new MainViewModel(new CustomersViewModel(new CustomerDataProvider()), new ProductsViewModel());
+            _viewModel = mainViewModel;
             DataContext = _viewModel;
             Loaded += MainWindow_Loaded;
         }
