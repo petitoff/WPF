@@ -39,7 +39,7 @@ namespace WiredBrainCoffe.ViewModel
             }
         }
 
-        private async Task SelectViewModel(object? parameter)
+        private async void SelectViewModel(object? parameter)
         {
             SelectedViewModel = parameter as ViewModelBase;
             await LoadAsync();
