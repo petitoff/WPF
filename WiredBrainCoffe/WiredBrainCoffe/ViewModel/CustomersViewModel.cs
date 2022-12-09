@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using WiredBrainCoffe.Command;
@@ -48,7 +47,7 @@ namespace WiredBrainCoffe.ViewModel
             }
         }
 
-        public async override Task LoadAsync()
+        public override async Task LoadAsync()
         {
             if (Customers.Any())
             {

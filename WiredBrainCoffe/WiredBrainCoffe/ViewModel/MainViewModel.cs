@@ -5,9 +5,7 @@ namespace WiredBrainCoffe.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-
         private ViewModelBase? _selectedViewModel;
-
 
         public MainViewModel(CustomersViewModel customersViewModel, ProductsViewModel productsViewModel)
         {
