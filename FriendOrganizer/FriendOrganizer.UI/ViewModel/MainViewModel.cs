@@ -13,7 +13,7 @@ namespace FriendOrganizer.UI.ViewModel
             NavigationViewModel = navigationViewModel;
         }
 
-        private INavigationViewModel NavigationViewModel { get; }
+        public INavigationViewModel NavigationViewModel { get; }
 
         public async Task LoadAsync()
         {
