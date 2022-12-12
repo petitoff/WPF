@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using FriendOrganizer.DataAccess;
 using FriendOrganizer.UI.Data;
+using FriendOrganizer.UI.ViewModel;
 
 namespace FriendOrganizer.UI.Startup
 {
@@ -13,7 +14,8 @@ namespace FriendOrganizer.UI.Startup
             builder.RegisterType<FriendOrganizerDbContext>().AsSelf();
 
             builder.RegisterType<MainWindow>().AsSelf();
-            builder.RegisterType<ViewModel.MainViewModel>().AsSelf();
+            builder.RegisterType<MainViewModel>().AsSelf();
+            builder.RegisterType<NavigationViewModel>().As<INavigationViewModel>();
 
             builder.RegisterType<FriendDataService>().AsImplementedInterfaces();
             builder.RegisterType<FriendDataService>().As<IFriendDataService>();

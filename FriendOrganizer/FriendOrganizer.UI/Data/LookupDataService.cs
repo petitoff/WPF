@@ -8,7 +8,7 @@ using FriendOrganizer.Model;
 
 namespace FriendOrganizer.UI.Data
 {
-    public class LookupDataService : ILookupDataService
+    public class LookupDataService : IFriendLookupDataService
     {
         private readonly Func<FriendOrganizerDbContext> _contextCreator;
 
