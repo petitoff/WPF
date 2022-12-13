@@ -27,7 +27,7 @@
                Content="Lastname"
                Margin="10 0" />
         <TextBox Grid.Row="3"
-                 Text="{Binding Friend.FirstName, UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding Friend.LastName, UpdateSourceTrigger=PropertyChanged}"
                  Margin="10 0" />
 
         <Label Grid.Row="4"
