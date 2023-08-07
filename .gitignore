@@ -192,4 +192,4 @@ bin
 obj
 WiredBrainCoffe/.vs/
 .vs/
-/packages/
+**/packages/
