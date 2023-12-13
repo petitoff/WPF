@@ -18,7 +18,7 @@ bld/
 [Oo]bj/
 
 # Roslyn cache directories
-*.ide/
+.idea
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -192,4 +192,4 @@ bin
 obj
 WiredBrainCoffe/.vs/
 .vs/
-**/packages/
+**/packages/**/packages/
