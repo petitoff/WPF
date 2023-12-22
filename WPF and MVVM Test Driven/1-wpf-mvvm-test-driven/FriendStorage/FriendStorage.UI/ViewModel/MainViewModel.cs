@@ -14,7 +14,7 @@ namespace FriendStorage.UI.ViewModel
 
         public void Load()
         {
-            NavigationViewModel.Load();
+            // NavigationViewModel.Load();
         }
     }
 }

@@ -56,6 +56,10 @@
     <Compile Include="Migrations\202212092043544_InitialDatabase.designer.cs">
       <DependentUpon>202212092043544_InitialDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312131417376_AddNickName.cs" />
+    <Compile Include="Migrations\202312131417376_AddNickName.designer.cs">
+      <DependentUpon>202312131417376_AddNickName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202212092043544_InitialDatabase.resx">
       <DependentUpon>202212092043544_InitialDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312131417376_AddNickName.resx">
+      <DependentUpon>202312131417376_AddNickName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

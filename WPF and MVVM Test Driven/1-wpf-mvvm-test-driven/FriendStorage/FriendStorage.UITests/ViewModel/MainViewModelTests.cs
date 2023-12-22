@@ -1,26 +1,28 @@
 ﻿using FriendStorage.UI.ViewModel;
+using Moq;
 
-namespace FriendStorage.UITests.ViewModel
+namespace FriendStorage.UITests.ViewModel;
+
+public class MainViewModelTests
 {
-    public class MainViewModelTests
+    [Fact]
+    public void ShouldCallTheLoadMethodOfTheFriendEditViewModel()
     {
-        [Fact]
-        public void ShouldCallTheLoadMethodOfTheFriendEditViewModel()
-        {
-            var navigationViewModelMock = new NavigationViewModelMock();
-            var viewModel = new MainViewModel(navigationViewModelMock);
-            viewModel.Load();
+        var navigationViewModelMock = new Mock<INavigationViewModel>();
+        var viewModel = new MainViewModel(navigationViewModelMock.Object);
+        viewModel.Load();
 
-            Assert.True(navigationViewModelMock.LoadWasCalled);
-        }
+        navigationViewModelMock.Verify(vm => vm.Load(), Times.Once);
+        
     }
+}
 
-    public class NavigationViewModelMock : INavigationViewModel
+public class NavigationViewModelMock : INavigationViewModel
+{
+    public bool LoadWasCalled { get; set; }
+
+    public void Load()
     {
-        public bool LoadWasCalled { get; set; }
-        public void Load()
-        {
-            LoadWasCalled = true;
-        }
+        LoadWasCalled = true;
     }
 }
