@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using FriendStorage.Model;
 using FriendStorage.UI.DataProvider;
 using FriendStorage.UI.ViewModel;
 using Moq;
+using Prism.Events;
 using Xunit;
-using FriendStorage.Model;
 
 namespace FriendStorage.UITests.ViewModel
 {
@@ -14,6 +15,7 @@ namespace FriendStorage.UITests.ViewModel
 
         public NavigationViewModelTests()
         {
+            var eventAggregatorMock = new Mock<IEventAggregator>();
             var navigationDataProviderMock = new Mock<INavigationDataProvider>();
             navigationDataProviderMock.Setup(dp => dp.GetAllFriends()).Returns(
                 new List<LookupItem>
@@ -23,7 +25,8 @@ namespace FriendStorage.UITests.ViewModel
                 });
 
 
-            _navigationViewModel = new NavigationViewModel(navigationDataProviderMock.Object);
+            _navigationViewModel =
+                new NavigationViewModel(navigationDataProviderMock.Object, eventAggregatorMock.Object);
             _navigationViewModel.Load();
         }
 
